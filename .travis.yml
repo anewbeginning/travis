@@ -10,6 +10,7 @@ install:
 before_script:
   - git config --global user.name "jianminglok"
   - git config --global user.email "jianminglok@hotmail.com"
+  - git config --global color.ui true
   - repo init -u https://github.com/CyanogenMod/android.git -b cm-12.1
   - repo sync
   - git clone https://github.com/jianminglok/android_device_xiaomi_hermes.git -b cm-12.1 device/xiaomi/hermes
