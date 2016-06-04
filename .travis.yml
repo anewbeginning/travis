@@ -1,0 +1,20 @@
+sudo: required
+dist: trusty
+language: generic
+
+install:
+  - sudo apt-get update
+  - sudo apt-get -y install bison build-essential curl flex git gnupg gperf libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk2.8-dev libxml2 libxml2-utils lzop maven openjdk-7-jdk pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev
+  - sudo apt-get -y install g++-multilib gcc-multilib lib32ncurses5-dev lib32readline-gplv2-dev lib32z1-dev phablet-tools
+
+before_script:
+  - repo init -u https://github.com/CyanogenMod/android.git -b cm-12.1
+  - repo sync
+  - git clone https://github.com/jianminglok/android_device_xiaomi_hermes.git -b cm-12.1 device/xiaomi/hermes
+  - git clone https://github.com/jianminglok/android_device_xiaomi_mt6795-common.git -b cm-12.1 device/xiaomi/mt6795-common
+  - git clone https://github.com/jianminglok/android_vendor_xiaomi_hermes.git -b cm-12.1 vendor/xiaomi/hermes
+
+script:
+  - source build/envsetup.sh
+  - breakfast hermes
+  - make bacon
