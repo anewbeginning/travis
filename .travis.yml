@@ -11,6 +11,7 @@ before_script:
   - git config --global user.name "jianminglok"
   - git config --global user.email "jianminglok@hotmail.com"
   - git config --global color.ui true
+  - sudo chmod -R 777 build.sh
   - ./build.sh
 
 script:
