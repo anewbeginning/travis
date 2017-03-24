@@ -16,4 +16,4 @@ before_script:
 script:
   - source build/envsetup.sh
   - breakfast kenzo
-  - make bacon
+  - make bacon -j16
